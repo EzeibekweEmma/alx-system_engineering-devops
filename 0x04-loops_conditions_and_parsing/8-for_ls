@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script is displaying the content of the current directory 
+
+files=$(find -- * -maxdepth 1| cut -d'-' -f2- )
+
+for f in $files
+do
+	echo "$f"
+done
