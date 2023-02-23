@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script displays the content of the file /etc/passwd 
+
+filename="/etc/passwd"
+
+while IFS= read -r line
+do
+	username=$(echo "$line" | cut -d':' -f1)
+	id=$(echo "$line" | cut -d':' -f3)
+	directory=$(echo "$line" | cut -d':' -f7)
+
+	echo "$username:$id:$directory"
+done < "$filename"
