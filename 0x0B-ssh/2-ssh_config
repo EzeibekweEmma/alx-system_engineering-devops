@@ -2,4 +2,9 @@
 # Login from the client to the server without password
 
 Host *
+    PasswordAuthentication no
+
+Host school
+    Hostname 35.153.50.98
+    User ubuntu
     IdentityFile ~/.ssh/school
