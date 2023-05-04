@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Debugging get Apache to run on the container
+
+sudo /etc/init.d/apache2 restart
