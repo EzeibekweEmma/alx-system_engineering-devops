@@ -3,24 +3,22 @@
 import requests
 from sys import argv
 
+if __name__ == "__main__":
+    try:
+        url = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
+    except IndexError:
+        exit
 
-if __name__ == '__main__':
-    id_ = argv[1]
-    url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(id_)
-
-    s = requests.Session()
-
-    url2 = 'https://jsonplaceholder.typicode.com/users/{}'.format(id_)
-    response = s.get(url2)
-    name = response.json()['name']
-
-    response = s.get(url)
-    body = response.json()
-    tasks_done = []
-    for b in body:
-        if b['completed']:
-            tasks_done.append('\t ' + b['title'])
-
-    print('Employee {} is done with tasks({}/{}):'
-          .format(name, len(tasks_done), len(body)))
-    print(*tasks_done, sep='\n')
+    res = requests.get(url)
+    res = res.json()
+    user_deets = "Employee {} is done with tasks".format(res.get('name'))
+    print(user_deets, end="")
+    res = requests.get(url + "/todos")
+    res = res.json()
+    done = 0
+    for task in res:
+        if task.get('completed'):
+            done += 1
+    print("({}/{}):".format(done, len(res)))
+    [print("\t {}".format(task.get('title')))
+        if task.get('completed') else "" for task in res]
