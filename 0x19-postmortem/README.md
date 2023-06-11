@@ -38,6 +38,6 @@ To prevent similar issues in the future, the following measures will be implemen
 4. Document the process for DNS management and establish clear responsibilities for maintaining DNS records.
 5. Conduct training sessions to raise awareness among teams about the importance of accurate DNS configurations and potential impact of misconfigurations.
 
+---
 
-
-**Please Note:* This postmortem is a fictional scenario created for the purpose of providing an example response. The details and timeline are purely fictional and do not represent any real-world events.*
+***Please Note:** This postmortem is a fictional scenario created for the purpose of providing an example response. The details and timeline are purely fictional and do not represent any real-world events.*
